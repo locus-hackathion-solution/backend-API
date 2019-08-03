@@ -21,7 +21,9 @@ import java.io.IOException;
 @RequestMapping("/routes")
 public class FetchRoutes {
 
-    public static final String FILE_PATH = "C:\\Users\\user\\Hackathon\\hackathon-time-api\\src\\main\\resources\\latlongdata.csv";
+//    public static final String FILE_PATH = "C:\\Users\\user\\Hackathon\\hackathon-time-api\\src\\main\\resources\\latlongdata.csv";
+
+    private static final String FILE_PATH = "/usr/app/latlongdata.csv";
 
     private OkHttpClient client = new OkHttpClient();
 
