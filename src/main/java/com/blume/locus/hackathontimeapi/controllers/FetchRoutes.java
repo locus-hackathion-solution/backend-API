@@ -1,6 +1,6 @@
 package com.blume.locus.hackathontimeapi.controllers;
 
-import com.blume.locus.hackathontimeapi.Welcome;
+import com.blume.locus.hackathontimeapi.jsonModels.Welcome;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
@@ -18,7 +18,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/routes")
+@RequestMapping("/osrm_routes")
 public class FetchRoutes {
 
 //    public static final String FILE_PATH = "C:\\Users\\user\\Hackathon\\hackathon-time-api\\src\\main\\resources\\latlongdata.csv";

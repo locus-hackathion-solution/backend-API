@@ -1,4 +1,4 @@
-package com.blume.locus.hackathontimeapi;
+package com.blume.locus.hackathontimeapi.jsonModels;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

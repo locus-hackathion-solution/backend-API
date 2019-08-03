@@ -1,5 +1,6 @@
-package com.blume.locus.hackathontimeapi;
+package com.blume.locus.hackathontimeapi.jsonModels;
 
+import com.blume.locus.hackathontimeapi.jsonModels.DrivingSide;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Lane {
