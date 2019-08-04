@@ -12,33 +12,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/routes")
 public class RoutesController {
 
-    //    private static final String FILE_PATH = "C:\\\\Users\\\\user\\\\Hackathon\\\\hackathon-time-api\\\\src\\\\main\\\\resources\\\\sample_routes_data.json";
-    private static final String FILE_PATH = "/usr/app/sample_routes_data.json";
-    private static final String FILE_PATH_IMPROVED = "/usr/app/sample_routes_data_improved.json";
+    private static final String BASE_PATH = "/usr/app/";
+    //    private static final String FILE_PATH = "C:\\\\Users\\\\user\\\\Hackathon\\\\hackathon-time-api\\\\src\\\\main\\\\resources\\\\sample_routes_data_0.json";
 
     @RequestMapping(method = RequestMethod.GET, value = "", produces = "application/json")
     public ResponseEntity<Routes> getRoutes() throws IOException {
-
-        Routes routes = buildRoutes(FILE_PATH);
-
+        Routes routes = buildRoutes(getFilePath());
         return new ResponseEntity<>(routes, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "", produces = "application/json")
     public ResponseEntity<Routes> createRoutes(@RequestBody RouteRequest routeRequest) throws IOException {
-        Routes routes;
-        if (routeRequest.getTime().equals("")) {
-            routes = buildRoutes(FILE_PATH);
-        } else {
-            routes = buildRoutes(FILE_PATH_IMPROVED);
-        }
-
+        Routes routes = buildRoutes(getFilePath());
         return new ResponseEntity<>(routes, HttpStatus.OK);
+    }
+
+    private String getFilePath() {
+        int i = new Random().nextInt(5);
+        return BASE_PATH + "sample_routes_data_" + i + ".json";
     }
 
     private Routes buildRoutes(String filePath) {
